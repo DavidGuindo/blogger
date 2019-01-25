@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% if error_user_exist != "" %}
+		<p>{{error_user_exist}}</p>
+	{%endif%}
+
+	{% if error_user_logged != "" %}
+		<p>{{error_user_logged}}</p>
+	{%endif%}
+
+    <form action="./login_reg" method="POST">
+    	Usuario: <input type="text" name="user"><br>
+    	Contraseña: <input type="password" name="password"><br>
+    	<input type="submit" name="open_session" value="Iniciar sesión">
+    	<input type="submit" name="registry" value="Registrarse">
+    </form>
+
+
+{% endblock %}

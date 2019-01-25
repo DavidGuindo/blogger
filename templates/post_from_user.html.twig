@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	
+   <h2>Tus Post son: </h2>
+    {% for post in user_post %}
+        <ul>
+          <li>{{post.title}}</li>
+        </ul>
+    {% endfor %}
+
+    <!--Si no hay post mostramos un mensaje-->
+    {% if user_post is empty  %}
+        <p>No tienes post</p>
+    {% endif %}
+
+{% endblock %}

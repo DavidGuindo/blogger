@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="./main_index" method="POST">
+    	<input type="submit" name="new_post" value="Nuevo Post">
+    	<input type="submit" name="modify_data" value="Modificar datos">
+    	<input type="submit" name="close_session" value="Cerrar sesión">
+    </form>
+
+    {% if all_posts != 0 %}
+	    {% for post in all_posts %}
+
+	    	<h2>{{post.title}}</h2>
+	    	<p>{{post.text}}</p>
+			<p style="color: green">Fecha de publicación: {{post.getPublicationDate}} por {{post.user.getName}}</p><hr>
+	    	<h3>Comentarios:</h3>
+	    		{% for comment in post.getComments() %}
+	    			<p><b>{{comment.date}}</b> {{comment.user.name}} dice: {{comment.text}}</p>
+	    		{% endfor %}
+
+	    	<form action="./create_new_comment" method="POST">
+				<textarea name="text_new_comment" cols="30" rows="5" placeholder="Comentario...."></textarea>
+					<input type="hidden" name="id_post" value="{{post.id}}">
+					<input type="submit" name="send_new_comment" value="Comentar">
+				</form>
+	    	<hr><hr>
+
+
+	    {% endfor %}
+    {% endif %}
+
+
+
+{% endblock %}

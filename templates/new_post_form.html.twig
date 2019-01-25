@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form action="./create_post" method="POST">
+    	Titulo: <input type="text" name="title_post"><br>
+    	Descripción: <input type="text" name="text_post"><br>
+    	<input type="submit" name="create_new_post" value="Publicar">
+    </form>
+
+
+{% endblock %}

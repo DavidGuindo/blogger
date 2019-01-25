@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	
+
+    <form action="./modify_data_user" method="POST">
+    	Nuevo nombre: <input type="text" name="new_name_user" value="{{user_logged.name}}"><br>
+    	Nueva Contraseña: <input type="password" name="new_password_user" value="{{user_logged.password}}"><br>
+    	<input type="submit" name="new_data_user" value="Modificar">
+    </form>
+
+
+{% endblock %}
